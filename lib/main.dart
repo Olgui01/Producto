@@ -234,18 +234,19 @@ class _InicioState extends State<Inicio> with TickerProviderStateMixin {
   }
 
   Future<List<dynamic>> searchC(String text) async {
-    try {
-      final response = await http.post(
-        Uri.parse(urli),
-        headers: <String, String>{'Content-Type': 'application/json'},
-        body: jsonEncode(
-          <String, String>{"Text": text, "type": selection},
-        ),
-      );
-      return jsonDecode(response.body);
-    } catch (e) {
-      throw Exception("fallin");
-    }
+    return [];
+    // try {
+    //   final response = await http.post(
+    //     Uri.parse(urli),
+    //     headers: <String, String>{'Content-Type': 'application/json'},
+    //     body: jsonEncode(
+    //       <String, String>{"Text": text, "type": selection},
+    //     ),
+    //   );
+    //   return jsonDecode(response.body);
+    // } catch (e) {
+    //   throw Exception("fallin");
+    // }
   }
 
   bool _isHovering = true;
@@ -370,7 +371,8 @@ class _InicioState extends State<Inicio> with TickerProviderStateMixin {
                   },
                 ),
               );
-            } else if (label == "Inicial" && _text.text.isNotEmpty) {
+            } 
+            if (label == "Inicial" && _text.text.isNotEmpty) {
               search(_text.text).then(
                 (value) => setState(
                   () {
